@@ -2,6 +2,7 @@ import React, { Dispatch, ReactNode, SetStateAction, useState } from "react";
 import { StepItem } from "./StepItem";
 
 export interface StepItemModel {
+  idx: number;
   title: string;
   isDisabled?: boolean;
 }
@@ -20,12 +21,12 @@ export const Stepper = ({ items, children }: StepperProps) => {
   return (
     <div>
       <ol className="flex flex-wrap">
-        {items.map((item, idx) => (
+        {items.map((item) => (
           <StepItem
-            key={idx}
+            key={item.idx}
             title={item.title}
-            idx={idx}
-            isActive={currentStep === idx}
+            idx={item.idx}
+            isActive={currentStep === item.idx}
           />
         ))}
       </ol>

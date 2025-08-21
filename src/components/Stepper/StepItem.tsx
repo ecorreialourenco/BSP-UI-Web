@@ -14,7 +14,7 @@ export const StepItem = ({ idx, title, isActive = false }: StepItemProps) => {
           isActive && "bg-gray-200"
         }`}
       >
-        {idx + 1}
+        {idx}
       </h3>
       <p className="mt-2">{title}</p>
     </li>

@@ -3,7 +3,11 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import { Stepper } from ".";
 
 describe("Stepper", () => {
-  const items = [{ title: "Step 1" }, { title: "Step 2" }];
+  const items = [
+    { idx: 1, title: "Step 1" },
+    { idx: 2, title: "Step 2" },
+  ];
+
   beforeEach(() => {
     render(
       <Stepper items={items}>

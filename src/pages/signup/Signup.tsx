@@ -37,9 +37,9 @@ export const Signup = () => {
   const router = useRouter();
 
   const steps: StepItemModel[] = [
-    { title: "CEO" },
-    { title: "Company" },
-    { title: "Office" },
+    { idx: 1, title: "CEO" },
+    { idx: 2, title: "Company" },
+    { idx: 3, title: "Office" },
   ];
 
   const handleSetData = (

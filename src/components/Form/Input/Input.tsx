@@ -42,7 +42,7 @@ export const Input = ({
             type === "password" && "pr-8"
           }`}
           defaultValue={value}
-          onChange={(e) => onChange?.(e) || {}}
+          onChange={(e) => onChange?.(e) ?? {}}
         />
         {type === "password" && (
           <button
