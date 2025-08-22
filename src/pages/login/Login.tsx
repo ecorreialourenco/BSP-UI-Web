@@ -24,9 +24,20 @@ export const Login = () => {
     <div className="flex h-dvh w-dvw">
       <Card title="Sign In" className="w-75">
         <form onSubmit={handleSubmit}>
-          <Input name="username" testId="username" required />
-          <Input name="password" type="password" testId="password" required />
-          <Button label="Login" testId="submit-bth" type="submit" />
+          <Input name="username" label="Username" testId="username" required />
+          <Input
+            name="password"
+            label="Password"
+            type="password"
+            testId="password"
+            required
+          />
+          <Button
+            label="Login"
+            testId="submit-bth"
+            className="w-full"
+            type="submit"
+          />
           {error && (
             <ErrorMessage
               testId="error-message"

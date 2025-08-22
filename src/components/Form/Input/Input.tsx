@@ -1,6 +1,7 @@
 import React, { ChangeEvent, InputHTMLAttributes, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import cn from "classnames";
 
 interface InputProps {
   name: string;
@@ -9,6 +10,7 @@ interface InputProps {
   required?: boolean;
   type?: InputHTMLAttributes<HTMLInputElement>["type"];
   value?: string | number;
+  className?: string;
   onChange?: (val: ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -19,6 +21,7 @@ export const Input = ({
   required,
   type,
   value,
+  className,
   onChange,
 }: InputProps) => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -26,7 +29,7 @@ export const Input = ({
   const inputType = type && !showPassword ? type : "text";
 
   return (
-    <div className="flex-1">
+    <div className={cn( className)}>
       {label && (
         <div className="text-start px-2">
           <label>{label}</label>
@@ -38,10 +41,11 @@ export const Input = ({
           data-testid={testId}
           type={inputType}
           required={required}
-          className={`border-1 border-solid rounded-lg px-2 py-1 w-full ${
-            type === "password" && "pr-8"
-          }`}
+          className={cn("border-1 border-solid rounded-lg px-2 py-1 w-full", {
+            "pr-8": type === "password",
+          })}
           defaultValue={value}
+          autoComplete="current-password"
           onChange={(e) => onChange?.(e) ?? {}}
         />
         {type === "password" && (

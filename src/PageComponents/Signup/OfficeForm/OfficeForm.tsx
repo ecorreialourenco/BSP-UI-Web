@@ -30,29 +30,29 @@ export const OfficeForm = ({
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit}>
-        <div className="flex w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-3">
           <Input
             name="officeName"
             label="Name"
             testId="officeName"
+            className="w-full sm:col-span-3"
             value={data?.officeName as string}
             required
           />
-        </div>
-        <div className="flex w-full">
           <Input
             name="address"
             label="Address"
             testId="address"
+            className="w-full sm:col-span-3"
             value={data?.address as string}
             required
           />
-        </div>
-        <div className="flex w-full">
+
           <Input
             name="zipCode"
             label="Zip Code"
             testId="zipCode"
+            className="w-full"
             value={data?.address as string}
             required
           />
@@ -60,6 +60,7 @@ export const OfficeForm = ({
             name="country"
             label="Country"
             testId="country"
+            className="w-full sm:col-span-2"
             value={data?.address as string}
             required
           />

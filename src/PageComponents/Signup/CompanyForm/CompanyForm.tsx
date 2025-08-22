@@ -35,6 +35,7 @@ export const CompanyForm = ({
             name="companyName"
             label="Name"
             testId="companyName"
+            className="w-full"
             value={data?.companyName as string}
             required
           />

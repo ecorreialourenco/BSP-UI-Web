@@ -63,7 +63,7 @@ export const Signup = () => {
 
   return (
     <div className="flex h-dvh w-dvw">
-      <Card title="Sign Up" className="w-150">
+      <Card title="Sign Up" className="w-75 sm:w-100 md:w-150">
         <Stepper items={steps}>
           {(currentStep, setCurrentStep) => {
             switch (currentStep) {

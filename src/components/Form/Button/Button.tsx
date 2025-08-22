@@ -1,3 +1,4 @@
+import cn from "classnames";
 import React, { ButtonHTMLAttributes } from "react";
 
 const buttonThemes = {
@@ -18,7 +19,7 @@ interface ButtonProps {
   theme?: Theme;
   testId?: string;
   disabled?: boolean;
-
+  className?: string;
   onClick?: () => void;
 }
 
@@ -28,6 +29,7 @@ export const Button = ({
   theme = "primary",
   testId,
   disabled = false,
+  className,
   onClick,
 }: ButtonProps) => {
   const themeClasses = buttonThemes[theme];
@@ -38,9 +40,10 @@ export const Button = ({
       onClick={onClick}
       data-testid={testId}
       disabled={disabled}
-      className={`rounded-lg px-2 py-1 ${
-        disabled ? "cursor-not-allowed" : "cursor-pointer"
-      } w-full m-1 ${themeClasses}`}
+      className={cn("rounded-lg px-2 py-1 m-1", themeClasses, className, {
+        "cursor-not-allowed": disabled,
+        "cursor-pointer": !disabled,
+      })}
     >
       {label}
     </button>

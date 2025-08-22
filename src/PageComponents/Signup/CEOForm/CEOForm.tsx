@@ -15,7 +15,6 @@ interface CEOFormProps {
 }
 
 export const CEOForm = ({ data, setData, setCurrentStep }: CEOFormProps) => {
-  console.log("🚀 ~ CEOForm ~ data:", data)
   const [error, setError] = useState<boolean>(false);
 
   const handleSubmit = (e: SyntheticEvent<HTMLFormElement, SubmitEvent>) => {
@@ -48,11 +47,12 @@ export const CEOForm = ({ data, setData, setCurrentStep }: CEOFormProps) => {
   return (
     <div className="w-full">
       <form onSubmit={handleSubmit}>
-        <div className="flex w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2">
           <Input
             name="firstName"
             label="First Name"
             testId="username"
+            className="w-full"
             value={data?.firstName as string}
             required
           />
@@ -60,34 +60,34 @@ export const CEOForm = ({ data, setData, setCurrentStep }: CEOFormProps) => {
             name="lastName"
             label="Last Name"
             testId="username"
-            value={data?.firstName as string}
+            className="w-full"
+            value={data?.lastName as string}
             required
           />
-        </div>
-        <div className="w-full">
+
           <Input
             name="username"
             label="Username"
             testId="username"
-            value={data?.firstName as string}
+            className="w-full md:col-span-2"
+            value={data?.userName as string}
             required
           />
-        </div>
-        <div className="flex w-full">
           <Input
             name="password"
             label="Password"
             type="password"
             testId="password"
-            value={data?.firstName as string}
+            className="w-full"
+            value={data?.password as string}
             required
           />
-          <div className="mt-6 flex-1">
+          <div className="mt-6 flex-1 w-full">
             <Input
               name="retryPassword"
               type="password"
               testId="retryPassword"
-              value={data?.firstName as string}
+              value={data?.password as string}
               required
             />
           </div>

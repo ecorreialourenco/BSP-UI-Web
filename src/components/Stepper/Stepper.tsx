@@ -26,7 +26,7 @@ export const Stepper = ({ items, children }: StepperProps) => {
             key={item.idx}
             title={item.title}
             idx={item.idx}
-            isActive={currentStep === item.idx}
+            isActive={currentStep + 1 === item.idx}
           />
         ))}
       </ol>
